@@ -1,4 +1,4 @@
-import { ChatWindow } from '../lib/main'
+import { ChatWindow } from 'kanas-chatbot'
 import './App.css'
 
 function App() {
