@@ -1,6 +1,5 @@
 {
   "name": "kanas-chatbot",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -13,7 +12,8 @@
     "prebuild": "rimraf dist",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublish": "pnpm build"
   },
   "dependencies": {
     "react": "^18.3.1",
