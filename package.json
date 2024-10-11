@@ -13,6 +13,7 @@
       "require": "./dist/kanas-chatbot.umd.cjs"
     }
   },
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "prebuild": "rimraf dist",
