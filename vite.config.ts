@@ -6,7 +6,12 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true})],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    dts({
+      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),  // https://github.com/qmhc/vite-plugin-dts/issues/344
+    })],
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
