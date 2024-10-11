@@ -11,6 +11,7 @@ export default defineConfig({
     tsconfigPaths(),
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),  // https://github.com/qmhc/vite-plugin-dts/issues/344
+      include: ['lib'],
     })],
   build: {
     lib: {
