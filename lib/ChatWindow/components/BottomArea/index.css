@@ -1,0 +1,61 @@
+.chat-window-bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #dddddd;
+  padding: 10px 20px;
+
+  .input-wrapper {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .input-area {
+      border: none;
+      outline: none;
+      resize: none;
+      padding: 10px 10px 5px 10px;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .multi-line-btn-area {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-bottom: 5px;
+    }
+
+    .single-line-btn-area {
+      position: absolute;
+      top: 6px;
+      right: 0px;
+    }
+
+    .submit-btn {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      padding: 5px;
+      box-sizing: border-box;
+      cursor: pointer;
+    
+      &:hover {
+        opacity: 0.6;
+      }
+    
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .bottom-line {
+    width: 100%;
+    padding-top: 5px;
+  }
+}
