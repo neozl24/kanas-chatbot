@@ -22,6 +22,8 @@
 
   .assistant-message-content {
     display: inline-block;
+    box-sizing: border-box;
+    min-height: 42px;
     padding: 10px 15px;
     border-radius: 0 15px 15px 15px;
     text-align: left;
@@ -46,5 +48,6 @@
     border-radius: 15px 15px 0 15px;
     background-color: rgba(125, 23, 193, 0.8);
     color: #ffffff;
+    text-align: left;
   }
 }

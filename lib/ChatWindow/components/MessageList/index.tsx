@@ -16,10 +16,10 @@ export const MessageList = ({
   return (
     <div className='chat-window-message-list'>
       {
-        list?.map((item) => (
+        list?.map((item, index) => (
           item.role === 'assistant' ?
-            <AssistantMessage logo={aiLogo} content={item.content} /> :
-            <UserMessage content={item.content} />
+            <AssistantMessage key={`msg-${index}`} logo={aiLogo} content={item.content} /> :
+            <UserMessage key={`msg-${index}`} content={item.content} />
         ))
       }
     </div>
