@@ -15,7 +15,7 @@ export const useMessages = (url: string) => {
 
     let output = ''
 
-    const onReceiveNewChunk = (chunk: QianfanChatResp) => {
+    const handleResp = (chunk: QianfanChatResp) => {
       output += chunk.result
       setStreamText(output)
 
@@ -27,7 +27,7 @@ export const useMessages = (url: string) => {
       }
     }
 
-    fetchAi(url, newMessages, onReceiveNewChunk)
+    fetchAi(url, newMessages, { handleResp })
   }
 
   const total = [...messages]

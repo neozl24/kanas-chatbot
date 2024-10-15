@@ -1,12 +1,20 @@
 import { Message, QianfanChatResp } from './types'
 
 type HandleResp = (_chunk: QianfanChatResp) => void
+type HandleError = (error: unknown) => void
+
+type Options = {
+  handleResp?: HandleResp
+  handleError?: HandleError
+}
 
 export const fetchAi = async (
   url: string,
   messages: Message[],
-  handleResp?: HandleResp
+  options?: Options
 ) => {
+  const { handleResp, handleError } = options || {}
+
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -15,7 +23,9 @@ export const fetchAi = async (
     body: JSON.stringify({ messages }),
   })
   if (!res.body) {
-    throw new Error('no response')
+    const err = new Error('no response')
+    handleError?.(err)
+    throw err
   }
 
   const reader = res.body
@@ -30,13 +40,22 @@ export const fetchAi = async (
       // stream end
       break
     }
-    if (value) {
-      try {
-        const chunk = JSON.parse(value)
-        handleResp?.(chunk)
-      } catch (error) {
-        console.error(error)
-      }
+
+    if (!value || !value.includes('data: ')) {
+      handleError?.(new Error('Invalid chunk'))
+      return
     }
+
+    const arr = value.split('data: ')
+    const validParts = arr.map((part) => part.trim()).filter((part) => part)
+
+    validParts.forEach((jsonStr) => {
+      try {
+        const data = JSON.parse(jsonStr) as QianfanChatResp
+        handleResp?.(data)
+      } catch (error) {
+        handleError?.(error)
+      }
+    })
   }
 }
