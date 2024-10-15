@@ -66,6 +66,13 @@ export const BottomArea = ({
     }
   }
 
+  const handleKeydown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      onSubmit()
+    }
+  }
+
   return (
     <div className='chat-window-bottom'>
       <div className='input-wrapper'>
@@ -79,6 +86,7 @@ export const BottomArea = ({
             minHeight: MIN_TEXTAREA_HEIGHT,
           }}
           onChange={onInputChange}
+          onKeyDown={handleKeydown}
         />
         <div className={isOverflow ? 'multi-line-btn-area' : 'single-line-btn-area'}>
           <img
