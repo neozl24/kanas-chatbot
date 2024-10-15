@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import defaultAiIcon from '../../../assets/ai.svg'
 import { Message } from '../../utils/types'
 
