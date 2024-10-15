@@ -11,7 +11,8 @@
     ".": {
       "import": "./dist/kanas-chatbot.js",
       "require": "./dist/kanas-chatbot.umd.cjs"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "sideEffects": false,
   "scripts": {
