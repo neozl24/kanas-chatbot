@@ -2,6 +2,10 @@
 
 This library provides a React client-side component for Chating with Baidu Qianfan LLM.
 
+<div style='text-align: center'>
+  <img src="./images/demo.gif" alt="demo using Kanas Chatbot" width="250" />
+</div>
+
 ## Frontend
 
 ### install dependency
@@ -38,9 +42,9 @@ const MyComponent = () => {
 
 ## Backend
 
-To communicate with LLM service, you have to prepare your api key first.
-This api key must not be public to your clients, and that means you should have your own backend server, 
-which communicates between your clients and LLM service.
+To access LLM service, you have to prepare your api key first.
+This api key must not be public to your clients, so that you need a backend server to store it. 
+The backend server will communicate between your clients and LLM.
 
 This instruction will show how to write your own chat api in NodeJS.
 
