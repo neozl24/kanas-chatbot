@@ -6,7 +6,7 @@ function App() {
   const topLine = (
     <>
       <img src={logo} alt='logo image' width='20' />
-      <span style={{ marginLeft: 20 }}>Chatbot</span>
+      <span style={{ marginLeft: 10 }}>Chatbot</span>
     </>
   )
 
