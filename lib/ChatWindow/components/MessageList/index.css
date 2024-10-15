@@ -1,6 +1,7 @@
 .chat-window-message-list {
   flex: 1;
   padding: 10px 0;
+  background-color: #ffffff;
   overflow-y: auto;
 }
 
