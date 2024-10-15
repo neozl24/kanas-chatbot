@@ -1,5 +1,8 @@
+import { useContext } from 'react'
 import defaultAiIcon from '../../../assets/ai.svg'
+import { ThemeColorContext } from '../../context'
 import { Message } from '../../utils/types'
+import { convertToRgba } from '../../utils/convertColor'
 
 import './index.css'
 
@@ -51,10 +54,15 @@ const UserMessage = ({
 }: {
   content: string
 }) => {
+  const themeColor = useContext(ThemeColorContext)
+  const backgroundColor = convertToRgba(themeColor)
+
   return (
     <div className='user-message-container'>
       <div className='user-message-area'>
-        <div className='user-message-content'>{content}</div>
+        <div className='user-message-content' style={{ backgroundColor }}>
+          {content}
+        </div>
       </div>
     </div>
   )
