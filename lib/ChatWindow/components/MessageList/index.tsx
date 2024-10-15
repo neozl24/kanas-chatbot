@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useLayoutEffect, useRef } from 'react'
 import defaultAiIcon from '../../../assets/ai.svg'
 import { ThemeColorContext } from '../../context'
 import { Message } from '../../utils/types'
@@ -15,8 +15,18 @@ export const MessageList = ({
   list,
   aiLogo,
 }: MessageListProps) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    const container = containerRef.current
+    if (!container) {
+      return
+    }
+    container.scrollTop = container.scrollHeight
+  }, [list])
+
   return (
-    <div className='chat-window-message-list'>
+    <div className='chat-window-message-list' ref={containerRef}>
       {
         list?.map((item, index) => (
           item.role === 'assistant' ?
